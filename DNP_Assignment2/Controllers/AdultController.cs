@@ -66,5 +66,12 @@ namespace DNP_Assignment2.Controllers
                 throw;
             }
         }
+        
+        [HttpDelete]
+        [Route("/Delete/{id}")]
+        public void Delete(int id)	
+        {
+            _fileContext.DeleteAdult(_fileContext.SearchAdult("id",id.ToString())[0]);
+        }
     }
 }

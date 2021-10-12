@@ -1,18 +1,1 @@
-[
-  {
-    "JobTitle": {
-      "JobTitle": "Student",
-      "Salary": 15000
-    },
-    "Id": 293346,
-    "FirstName": "Radovan",
-    "LastName": "Santa",
-    "HairColor": "brown",
-    "EyeColor": "brown",
-    "Age": 21,
-    "Weight": 75,
-    "Height": 175,
-    "Sex": "M",
-    "ProfileUrl": "Something"
-  }
-]
+[]

@@ -91,30 +91,28 @@ namespace DNP_Assignment2.Persistence
 
         public void EditAdult(Adult adult)
         {
-            string[] searchOption = {"id", adult.Id.ToString()};
-            Adult selectedAdult = SearchAdult(searchOption)[0];
+            Adult selectedAdult = SearchAdult("id",adult.Id.ToString())[0];
             DeleteAdult(selectedAdult);
             AddAdult(adult);
             SaveChanges();
-
         }
 
-        public IList<Adult> SearchAdult(string[] value)
+        public IList<Adult> SearchAdult(string type, string value)
         {
-            if(value[0] == "firstName")
+            if(type == "firstName")
             {
                 return Adults.Where(
-                    adult => adult.FirstName.ToLower().Contains(value[1].ToLower())).ToList();
+                    adult => adult.FirstName.ToLower().Contains(value.ToLower())).ToList();
             }
-            if(value[0] == "lastName")
+            if(type == "lastName")
             {
                 return Adults.Where(
-                    adult => adult.LastName.ToLower().Contains(value[1].ToLower())).ToList();
+                    adult => adult.LastName.ToLower().Contains(value.ToLower())).ToList();
             }
-            if(value[0] == "id")
+            if(type == "id")
             {
                 return Adults.Where(
-                    adult => adult.Id.ToString().Contains(value[1])).ToList();
+                    adult => adult.Id.ToString().Contains(value)).ToList();
             }
             return Adults;
         }
