@@ -10,17 +10,14 @@ namespace DNP_Assignment2.Persistence
 {
     public class FileContext
     {
-        //public IList<Family> Families { get; private set; }
         public IList<Adult> Adults { get; private set; }
         public IList<User> Users { get; set; }
-
-        private readonly string familiesFile = "families.json";
+        
         private readonly string adultsFile = "adults.json";
         private readonly string usersFile = "users.json";
 
         public FileContext()
         {
-            //Families = File.Exists(familiesFile) ? ReadData<Family>(familiesFile) : new List<Family>();
             Adults = File.Exists(adultsFile) ? ReadData<Adult>(adultsFile) : new List<Adult>();
             Users = File.Exists(usersFile) ? ReadData<User>(usersFile) : new List<User>();
         }
@@ -36,17 +33,6 @@ namespace DNP_Assignment2.Persistence
 
         public void SaveChanges()
         {
-            /* storing families
-            string jsonFamilies = JsonSerializer.Serialize(Families, new JsonSerializerOptions
-            {
-                WriteIndented = true
-            });
-            using (StreamWriter outputFile = new StreamWriter(familiesFile, false))
-            {
-                outputFile.Write(jsonFamilies);
-            }
-            */
-
             // storing persons
             string jsonAdults = JsonSerializer.Serialize(Adults, new JsonSerializerOptions
             {
@@ -72,8 +58,11 @@ namespace DNP_Assignment2.Persistence
 
         public void AddAdult(Adult adult)
         {
-            Adults.Add(adult);
-            SaveChanges();
+            if (IsIdUnique(adult.Id))
+            {
+                Adults.Add(adult);
+                SaveChanges();
+            }
         }
         
         public void AddUser(User user)
@@ -94,6 +83,15 @@ namespace DNP_Assignment2.Persistence
             Adult selectedAdult = SearchAdult("id",adult.Id.ToString())[0];
             DeleteAdult(selectedAdult);
             AddAdult(adult);
+            SaveChanges();
+        }
+
+        public void UpdateAdult(int id, Adult updatedAdult)
+        {
+            Adult adult = SearchAdult("id",id.ToString())[0];
+            int index = Adults.IndexOf(adult);
+            Adults.RemoveAt(index);
+            Adults.Insert(index,updatedAdult);
             SaveChanges();
         }
 

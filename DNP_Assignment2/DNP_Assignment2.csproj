@@ -12,4 +12,9 @@
       <Folder Include="Models" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Pages\_Host.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Home.razor" />
+    </ItemGroup>
+
 </Project>

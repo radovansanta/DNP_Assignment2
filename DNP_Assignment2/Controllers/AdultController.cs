@@ -78,11 +78,7 @@ namespace DNP_Assignment2.Controllers
         [Route("/Update")]
         public void Edit([FromQuery]int id, [FromBody]Adult updatedAdult)	
         {
-            Adult adult = _fileContext.SearchAdult("id",id.ToString())[0];
-            int index = _fileContext.Adults.IndexOf(adult);
-            _fileContext.Adults.RemoveAt(index);
-            _fileContext.Adults.Insert(index,updatedAdult);
-            _fileContext.SaveChanges();
+            _fileContext.UpdateAdult(id,updatedAdult);
         }
         
         
