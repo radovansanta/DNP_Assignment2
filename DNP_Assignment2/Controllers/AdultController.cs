@@ -41,7 +41,7 @@ namespace DNP_Assignment2.Controllers
         {
             try
             {
-                Adult adult = _fileContext.Adults[id];
+                Adult adult = _fileContext.Adults.First(x => x.Id==id);
                 return Ok(adult);
 
             }
@@ -74,9 +74,9 @@ namespace DNP_Assignment2.Controllers
             _fileContext.DeleteAdult(_fileContext.SearchAdult("id",id.ToString())[0]);
         }
         
-        [HttpPut]
-        [Route("/Update")]
-        public void Edit([FromQuery]int id, [FromBody]Adult updatedAdult)	
+        [HttpPatch]
+        [Route("/Update/{id}")]
+        public void Edit(int id, [FromBody]Adult updatedAdult)	
         {
             _fileContext.UpdateAdult(id,updatedAdult);
         }

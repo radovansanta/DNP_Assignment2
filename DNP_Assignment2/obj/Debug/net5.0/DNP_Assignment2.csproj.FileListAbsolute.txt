@@ -28,4 +28,3 @@
 /Users/radovansanta/RiderProjects/DNP_Assignment2/DNP_Assignment2/obj/Debug/net5.0/DNP_Assignment2.genruntimeconfig.cache
 /Users/radovansanta/RiderProjects/DNP_Assignment2/DNP_Assignment2/bin/Debug/net5.0/Adults.json
 /Users/radovansanta/RiderProjects/DNP_Assignment2/DNP_Assignment2/bin/Debug/net5.0/users.json
-/Users/radovansanta/RiderProjects/DNP_Assignment2/DNP_Assignment2/bin/Debug/net5.0/DNP_Assignment2.Views.dll

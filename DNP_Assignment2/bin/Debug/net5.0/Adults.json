@@ -1,66 +1,18 @@
 [
   {
     "JobTitle": {
-      "JobTitle": "string",
-      "Salary": 0
+      "JobTitle": "Student",
+      "Salary": 20000
     },
     "Id": 293346,
     "FirstName": "Radovan",
     "LastName": "Santa",
-    "HairColor": "string",
-    "EyeColor": "string",
-    "Age": 0,
-    "Weight": 0,
-    "Height": 0,
-    "Sex": "string",
-    "ProfileUrl": "string"
-  },
-  {
-    "JobTitle": {
-      "JobTitle": "string",
-      "Salary": 0
-    },
-    "Id": 293346,
-    "FirstName": "Funguje to",
-    "LastName": "string",
-    "HairColor": "string",
-    "EyeColor": "string",
-    "Age": 0,
-    "Weight": 0,
-    "Height": 0,
-    "Sex": "string",
-    "ProfileUrl": "string"
-  },
-  {
-    "JobTitle": {
-      "JobTitle": "string",
-      "Salary": 0
-    },
-    "Id": 293346,
-    "FirstName": "F",
-    "LastName": "string",
-    "HairColor": "string",
-    "EyeColor": "string",
-    "Age": 0,
-    "Weight": 0,
-    "Height": 0,
-    "Sex": "string",
-    "ProfileUrl": "string"
-  },
-  {
-    "JobTitle": {
-      "JobTitle": "string",
-      "Salary": 0
-    },
-    "Id": 293344,
-    "FirstName": "C",
-    "LastName": "string",
-    "HairColor": "string",
-    "EyeColor": "string",
-    "Age": 0,
-    "Weight": 0,
-    "Height": 0,
-    "Sex": "string",
-    "ProfileUrl": "string"
+    "HairColor": "brown",
+    "EyeColor": "brown",
+    "Age": 21,
+    "Weight": 74,
+    "Height": 175,
+    "Sex": "M",
+    "ProfileUrl": "https://raw.githubusercontent.com/radovansanta/DNP_Assignment1/master/DNP_Assignment1/Images/ProfileMale.png"
   }
 ]
