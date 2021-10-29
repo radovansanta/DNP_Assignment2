@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
-using System.Threading.Tasks;
 using DNP_Assignment2.Models;
 
 namespace DNP_Assignment2.Persistence
@@ -75,14 +74,6 @@ namespace DNP_Assignment2.Persistence
         {
             Adults.Remove(adult);
             Console.Out.Write(adult);
-            SaveChanges();
-        }
-
-        public void EditAdult(Adult adult)
-        {
-            Adult selectedAdult = SearchAdult("id",adult.Id.ToString())[0];
-            DeleteAdult(selectedAdult);
-            AddAdult(adult);
             SaveChanges();
         }
 
