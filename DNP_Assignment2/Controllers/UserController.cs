@@ -28,6 +28,21 @@ namespace DNP_Assignment2.Controllers
                 return StatusCode(500, e.Message);
             }
         }
+        
+        [HttpPost]
+        public async Task<ActionResult<User>> AddUser([FromBody] User user)
+        {
+            try
+            {
+                _userServices.AddUser(user);
+                return Created($"/{user}", user);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
 
     }
 }

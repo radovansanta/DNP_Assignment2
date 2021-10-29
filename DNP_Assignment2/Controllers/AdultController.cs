@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 using DNP_Assignment2.Models;
-using DNP_Assignment2.Persistence;
+using DNP_Assignment2.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -17,15 +17,15 @@ namespace DNP_Assignment2.Controllers
     
     public class AdultController : Controller
     {
-        FileContext _fileContext = new ();
+        AdultServices _adultServices = new ();
         
         [HttpGet]
         public async Task<ActionResult<IList<Adult>>> Get()
         {
             try
             {
-                IList<Adult> adults = _fileContext.Adults.ToList();
-                Console.Out.Write(_fileContext.Adults.ToList());
+                IList<Adult> adults = _adultServices.Adults.ToList();
+                Console.Out.Write(_adultServices.Adults.ToList());
                 return Ok(adults);
 
             }
@@ -41,7 +41,7 @@ namespace DNP_Assignment2.Controllers
         {
             try
             {
-                Adult adult = _fileContext.Adults.First(x => x.Id==id);
+                Adult adult = _adultServices.Adults.First(x => x.Id==id);
                 return Ok(adult);
 
             }
@@ -57,7 +57,7 @@ namespace DNP_Assignment2.Controllers
         {
             try
             {
-                _fileContext.AddAdult(adult);
+                _adultServices.AddAdult(adult);
                 return Created($"/{adult}", adult);
             }
             catch (Exception e)
@@ -69,16 +69,34 @@ namespace DNP_Assignment2.Controllers
         
         [HttpDelete]
         [Route("/Delete/{id}")]
-        public void Delete(int id)	
+        public async Task<ActionResult> Delete(int id)	
         {
-            _fileContext.DeleteAdult(_fileContext.SearchAdult("id",id.ToString())[0]);
+            try
+            {
+                await _adultServices.DeleteAdult(_adultServices.SearchAdult("id", id.ToString())[0]);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
         }
         
         [HttpPatch]
         [Route("/Update/{id}")]
-        public void Edit(int id, [FromBody]Adult updatedAdult)	
+        public async Task<ActionResult> Edit(int id, [FromBody]Adult updatedAdult)	
         {
-            _fileContext.UpdateAdult(id,updatedAdult);
+            try
+            {
+                await _adultServices.UpdateAdult(id, updatedAdult);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
         }
         
         

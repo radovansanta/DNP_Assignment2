@@ -10,5 +10,17 @@
     "Password": "test",
     "FisrtName": "Radovan",
     "LastName": "Santa"
+  },
+  {
+    "Email": "something",
+    "Password": "a",
+    "FisrtName": "a",
+    "LastName": "a"
+  },
+  {
+    "Email": "something",
+    "Password": "a",
+    "FisrtName": "a",
+    "LastName": "a"
   }
 ]
