@@ -14,5 +14,21 @@
     "Height": 175,
     "Sex": "M",
     "ProfileUrl": "https://raw.githubusercontent.com/radovansanta/DNP_Assignment1/master/DNP_Assignment1/Images/ProfileMale.png"
+  },
+  {
+    "JobTitle": {
+      "JobTitle": "Matus",
+      "Salary": 21210
+    },
+    "Id": 1234,
+    "FirstName": "Matus",
+    "LastName": "Jancik",
+    "HairColor": "Matus",
+    "EyeColor": "Matus",
+    "Age": 2,
+    "Weight": 21,
+    "Height": 212,
+    "Sex": "Matus",
+    "ProfileUrl": "https://raw.githubusercontent.com/radovansanta/DNP_Assignment1/master/DNP_Assignment1/Images/ProfileFemale.png"
   }
 ]
